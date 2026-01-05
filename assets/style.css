@@ -83,12 +83,39 @@ section h2 {
     font-size: 1.2rem;
 }
 
-/* Section À propos : texte centré */
-#about p {
-    text-align: center;
-    font-size: 1.1rem;
-    max-width: 600px;
+/* Section À propos : layout avec photo et info */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
     margin: 0 auto;
+}
+
+.photo-placeholder {
+    flex-shrink: 0;
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 50%;
+    border: 5px solid #4CAF50;
+    transition: transform 0.3s;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+
+.info {
+    flex: 1;
+}
+
+.info p {
+    text-align: left;
+    margin-bottom: 1rem;
 }
 
 /* Section Projets : grille responsive */
@@ -125,6 +152,62 @@ section h2 {
     color: #4CAF50;
 }
 
+.project:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Popup pour les détails des projets */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #4CAF50;
+}
+
 /* Section Contact : formulaire stylisé */
 #contact-form {
     max-width: 500px;
@@ -145,6 +228,14 @@ section h2 {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
 }
 
 #contact-form textarea {
@@ -160,11 +251,85 @@ section h2 {
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 #contact-form button:hover {
     background-color: #45a049; /* Vert plus foncé au survol */
+    transform: translateY(-2px);
+}
+
+/* Animations modernes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section À propos de moi : animations pour le texte */
+#about p {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section Frameworks : grille pour les logos */
+.frameworks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.framework {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.framework:hover {
+    transform: scale(1.1);
+}
+
+.framework img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.5rem;
+}
+
+.framework p {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Section Contact : info de contact */
+.contact-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contact-info a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive : ajustements pour mobiles */
@@ -182,6 +347,15 @@ section h2 {
     .project {
         width: 100%;
         max-width: 300px;
+    }
+
+    .frameworks-container {
+        gap: 1rem;
+    }
+
+    .framework img {
+        width: 60px;
+        height: 60px;
     }
 
     section {

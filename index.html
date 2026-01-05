@@ -29,49 +29,101 @@
         </div>
     </section>
 
-    <!-- Section À propos -->
-    <section id="about">
-        <h2>À propos</h2>
-        <p>Je suis Philippe, passionné par le web et le design. J'aime créer des expériences utilisateur intuitives et modernes.</p>
-    </section>
-
-    <!-- Section Projets -->
-    <section id="projects">
-        <h2>Projets</h2>
-        <div class="projects-container">
-            <div class="project">
-                <div class="project-image"></div> <!-- Placeholder image -->
-                <h3>Projet 1 : Site Web E-commerce</h3>
-                <p>Un site de vente en ligne avec panier et paiement intégré.</p>
+    <!-- Section À propos de moi -->
+    <section id="about" class="fade-in slide-in">
+        <h2>À propos de moi</h2>
+        <div class="about-content">
+            <div class="photo-placeholder">
+                <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&h=150&fit=crop&crop=center'); background-size: cover;"></div>
             </div>
-            <div class="project">
-                <div class="project-image"></div> <!-- Placeholder image -->
-                <h3>Projet 2 : Application Mobile</h3>
-                <p>Une app pour la gestion des tâches quotidiennes.</p>
-            </div>
-            <div class="project">
-                <div class="project-image"></div> <!-- Placeholder image -->
-                <h3>Projet 3 : Blog Personnel</h3>
-                <p>Un blog pour partager mes pensées sur le développement.</p>
+            <div class="info">
+                <p><strong>Nom :</strong> Philippe Kakese Nkulu</p>
+                <p><strong>Date de naissance :</strong> 10 octobre</p>
+                <p><strong>Compétences :</strong> Création de site web, développement front-end</p>
+                <p><strong>Langages maîtrisés :</strong> Python, JavaScript, Node.js</p>
+                <p>Je suis Philippe, passionné par le web et le design. J'aime créer des expériences utilisateur intuitives et modernes.</p>
             </div>
         </div>
     </section>
 
+    <!-- Section Frameworks -->
+    <section id="frameworks" class="fade-in">
+        <h2>Frameworks que je maîtrise ou utilise</h2>
+        <div class="frameworks-container">
+            <div class="framework">
+                <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="Bootstrap Logo">
+                <p>Bootstrap</p>
+            </div>
+            <div class="framework">
+                <img src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" alt="Tailwind CSS Logo">
+                <p>Tailwind CSS</p>
+            </div>
+            <div class="framework">
+                <img src="https://materializecss.com/res/materialize.svg" alt="Materialize Logo">
+                <p>Materialize</p>
+            </div>
+            <div class="framework">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma Logo">
+                <p>Bulma</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projects" class="fade-in">
+        <h2>Projets</h2>
+        <div class="projects-container">
+            <div class="project">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 1 : Site Web E-commerce</h3>
+                <p>Un site de vente en ligne avec panier et paiement intégré.</p>
+                <p><strong>Technologie :</strong> Python</p>
+            </div>
+            <div class="project">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 2 : Application Mobile</h3>
+                <p>Une app pour la gestion des tâches quotidiennes.</p>
+                <p><strong>Technologie :</strong> Node.js</p>
+            </div>
+            <div class="project">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 3 : Blog Personnel</h3>
+                <p>Un blog pour partager mes pensées sur le développement.</p>
+                <p><strong>Technologie :</strong> JavaScript</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup pour les détails des projets -->
+    <div id="project-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="popup-title"></h3>
+            <p id="popup-description"></p>
+            <p><strong>Technologie :</strong> <span id="popup-tech"></span></p>
+        </div>
+    </div>
+
     <!-- Section Contact -->
-    <section id="contact">
+    <section id="contact" class="fade-in">
         <h2>Contact</h2>
         <form id="contact-form">
             <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required class="form-input">
 
             <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required class="form-input">
 
             <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required class="form-input"></textarea>
 
-            <button type="submit">Envoyer</button>
+            <button type="submit" class="submit-btn">Envoyer</button>
         </form>
+        <div class="contact-info">
+            <p>Contactez-moi directement :</p>
+            <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail Logo" style="width: 20px; height: 20px; margin-right: 5px;"> Email : <a href="mailto:magellanbastese@gmail.com">magellanbastese@gmail.com</a></p>
+            <p>Téléphone : <a href="tel:0986091501">0986091501</a></p>
+        </div>
     </section>
 
     <!-- Lien vers le fichier JavaScript local -->
