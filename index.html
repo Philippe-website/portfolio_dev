@@ -6,6 +6,8 @@
     <title>Portfolio de Philippe Kakese Nkulu</title>
     <!-- Lien vers le fichier CSS local -->
     <link rel="stylesheet" href="assets/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- En-tête avec nom et navigation -->
@@ -13,42 +15,45 @@
         <h1>Philippe Kakese Nkulu</h1>
         <nav>
             <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+                <li><a href="#skills"><i class="fas fa-tools"></i> Compétences</a></li>
+                <li><a href="#projects"><i class="fas fa-briefcase"></i> Projets</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="#" id="chat-link"><i class="fas fa-comments"></i> Chat</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Section Accueil -->
-    <section id="home">
+    <section id="home" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=1920&h=1080&fit=crop&crop=center'); background-size: cover; background-position: center;">
         <div class="hero">
-            <h2>Bienvenue sur mon portfolio</h2>
-            <p>Découvrez mes projets et compétences en développement web.</p>
+            <h2><i class="fas fa-code"></i> Bienvenue sur mon portfolio</h2>
+            <p><i class="fas fa-rocket"></i> Découvrez mes projets et compétences en développement web.</p>
         </div>
     </section>
 
     <!-- Section À propos de moi -->
     <section id="about" class="fade-in slide-in">
-        <h2>À propos de moi</h2>
+        <h2><i class="fas fa-info-circle"></i> À propos de moi</h2>
         <div class="about-content">
             <div class="photo-placeholder">
                 <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&h=150&fit=crop&crop=center'); background-size: cover;"></div>
             </div>
             <div class="info">
-                <p><strong>Nom :</strong> Philippe Kakese Nkulu</p>
-                <p><strong>Date de naissance :</strong> 10 octobre</p>
-                <p><strong>Compétences :</strong> Création de site web, développement front-end</p>
-                <p><strong>Langages maîtrisés :</strong> Python, JavaScript, Node.js</p>
-                <p>Je suis Philippe, passionné par le web et le design. J'aime créer des expériences utilisateur intuitives et modernes.</p>
+                <p><i class="fas fa-user-circle"></i> <strong>Nom :</strong> Philippe Kakese Nkulu</p>
+                <p><i class="fas fa-birthday-cake"></i> <strong>Date de naissance :</strong> 10 octobre</p>
+                <p><i class="fas fa-code"></i> <strong>Compétences :</strong> Création de site web, développement front-end</p>
+                <p><i class="fas fa-laptop-code"></i> <strong>Langages maîtrisés :</strong> Python, JavaScript, Node.js</p>
+                <p><i class="fas fa-heart"></i> Je suis Philippe, passionné par le web et le design. J'aime créer des expériences utilisateur intuitives et modernes.</p>
             </div>
         </div>
     </section>
 
     <!-- Section Frameworks -->
     <section id="frameworks" class="fade-in">
-        <h2>Frameworks que je maîtrise ou utilise</h2>
+        <h2><i class="fas fa-layer-group"></i> Frameworks que je maîtrise ou utilise</h2>
         <div class="frameworks-container">
             <div class="framework">
                 <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="Bootstrap Logo">
@@ -70,43 +75,289 @@
     </section>
 
     <!-- Section Projets -->
-    <section id="projects" class="fade-in">
-        <h2>Projets</h2>
+    <section id="projects" class="fade-in" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1920&h=1080&fit=crop&crop=center'); background-size: cover; background-attachment: fixed;">
+        <h2><i class="fas fa-briefcase"></i> Projets</h2>
         <div class="projects-container">
-            <div class="project">
+            <!-- Existing projects -->
+            <div class="project" data-project-id="1">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
                 <h3>Projet 1 : Site Web E-commerce</h3>
                 <p>Un site de vente en ligne avec panier et paiement intégré.</p>
                 <p><strong>Technologie :</strong> Python</p>
             </div>
-            <div class="project">
+            <div class="project" data-project-id="2">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
                 <h3>Projet 2 : Application Mobile</h3>
                 <p>Une app pour la gestion des tâches quotidiennes.</p>
                 <p><strong>Technologie :</strong> Node.js</p>
             </div>
-            <div class="project">
+            <div class="project" data-project-id="3">
                 <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1486312338219-ce68e2c6f44d?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
                 <h3>Projet 3 : Blog Personnel</h3>
                 <p>Un blog pour partager mes pensées sur le développement.</p>
                 <p><strong>Technologie :</strong> JavaScript</p>
             </div>
+            <!-- Additional projects -->
+            <div class="project" data-project-id="4">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 4 : Portfolio Interactif</h3>
+                <p>Un portfolio dynamique avec animations et interactions.</p>
+                <p><strong>Technologie :</strong> HTML, CSS, JS</p>
+            </div>
+            <div class="project" data-project-id="5">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 5 : API REST</h3>
+                <p>Développement d'une API RESTful pour applications mobiles.</p>
+                <p><strong>Technologie :</strong> Node.js, Express</p>
+            </div>
+            <div class="project" data-project-id="6">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 6 : Dashboard Admin</h3>
+                <p>Tableau de bord administrateur avec graphiques et statistiques.</p>
+                <p><strong>Technologie :</strong> React, Chart.js</p>
+            </div>
+            <div class="project" data-project-id="7">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 7 : Site Vitrine</h3>
+                <p>Site vitrine responsive pour entreprise locale.</p>
+                <p><strong>Technologie :</strong> Bootstrap, PHP</p>
+            </div>
+            <div class="project" data-project-id="8">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 8 : Chat Application</h3>
+                <p>Application de chat en temps réel avec WebSockets.</p>
+                <p><strong>Technologie :</strong> Socket.io, Node.js</p>
+            </div>
+            <div class="project" data-project-id="9">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 9 : Système de Gestion</h3>
+                <p>Système de gestion de contenu pour blogs.</p>
+                <p><strong>Technologie :</strong> Laravel, MySQL</p>
+            </div>
+            <div class="project" data-project-id="10">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 10 : App Météo</h3>
+                <p>Application météo avec API externe et géolocalisation.</p>
+                <p><strong>Technologie :</strong> Vue.js, OpenWeather API</p>
+            </div>
+            <div class="project" data-project-id="11">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 11 : E-learning Platform</h3>
+                <p>Plateforme d'apprentissage en ligne avec cours et quiz.</p>
+                <p><strong>Technologie :</strong> Django, PostgreSQL</p>
+            </div>
+            <div class="project" data-project-id="12">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 12 : Social Network</h3>
+                <p>Réseau social basique avec profils et publications.</p>
+                <p><strong>Technologie :</strong> MERN Stack</p>
+            </div>
+            <div class="project" data-project-id="13">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 13 : Task Manager</h3>
+                <p>Gestionnaire de tâches avec drag & drop.</p>
+                <p><strong>Technologie :</strong> Angular, Firebase</p>
+            </div>
+            <div class="project" data-project-id="14">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 14 : Photo Gallery</h3>
+                <p>Galerie photo avec upload et filtres.</p>
+                <p><strong>Technologie :</strong> PHP, jQuery</p>
+            </div>
+            <div class="project" data-project-id="15">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 15 : Booking System</h3>
+                <p>Système de réservation pour événements.</p>
+                <p><strong>Technologie :</strong> Symfony, MySQL</p>
+            </div>
+            <div class="project" data-project-id="16">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 16 : Music Player</h3>
+                <p>Lecteur de musique avec playlist personnalisée.</p>
+                <p><strong>Technologie :</strong> React Native</p>
+            </div>
+            <div class="project" data-project-id="17">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 17 : Recipe App</h3>
+                <p>Application de recettes avec recherche et favoris.</p>
+                <p><strong>Technologie :</strong> Flutter, SQLite</p>
+            </div>
+            <div class="project" data-project-id="18">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 18 : Fitness Tracker</h3>
+                <p>Suivi fitness avec graphiques et objectifs.</p>
+                <p><strong>Technologie :</strong> Ionic, MongoDB</p>
+            </div>
+            <div class="project" data-project-id="19">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 19 : News Aggregator</h3>
+                <p>Agrégateur de nouvelles avec catégories.</p>
+                <p><strong>Technologie :</strong> Next.js, API</p>
+            </div>
+            <div class="project" data-project-id="20">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Projet 20 : Expense Tracker</h3>
+                <p>Suivi des dépenses avec rapports mensuels.</p>
+                <p><strong>Technologie :</strong> Vue.js, LocalStorage</p>
+            </div>
         </div>
     </section>
 
-    <!-- Popup pour les détails des projets -->
-    <div id="project-popup" class="popup">
-        <div class="popup-content">
+    <!-- Section Compétences -->
+    <section id="skills" class="fade-in">
+        <h2><i class="fas fa-star"></i> Mes Compétences</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+                <p>Structure et sémantique web</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+                <p>Design responsive et animations</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js-square"></i>
+                <h3>JavaScript</h3>
+                <p>Interactivité et logique côté client</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Développement backend et scripts</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-node-js"></i>
+                <h3>Node.js</h3>
+                <p>Applications serveur et APIs</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-react"></i>
+                <h3>React</h3>
+                <p>Interfaces utilisateur dynamiques</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <h3>Base de données</h3>
+                <p>MySQL, MongoDB, PostgreSQL</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git</h3>
+                <p>Contrôle de version et collaboration</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="fade-in">
+        <h2><i class="fas fa-cogs"></i> Services</h2>
+        <div class="services-container">
+            <div class="service">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Website Creation</h3>
+                <p>Custom websites tailored to your needs.</p>
+            </div>
+            <div class="service">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Task Management</h3>
+                <p>Efficient tools for organizing your tasks.</p>
+            </div>
+            <div class="service">
+                <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
+                <h3>Digital Solutions</h3>
+                <p>Innovative digital solutions for modern businesses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h3 id="popup-title"></h3>
-            <p id="popup-description"></p>
-            <p><strong>Technologie :</strong> <span id="popup-tech"></span></p>
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <div class="modal-image" id="modal-image"></div>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description"></p>
+                <p><strong>Technologies utilisées :</strong> <span id="modal-tech"></span></p>
+                <div class="modal-actions">
+                    <button id="similar-btn" class="action-btn">Je veux un site similaire</button>
+                    <button id="modify-btn" class="action-btn">Demander des modifications</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal for Similar Website Request -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Demande de site similaire</h3>
+            <form id="similar-form">
+                <label for="similar-name">Nom :</label>
+                <input type="text" id="similar-name" name="name" required>
+
+                <label for="similar-email">Email :</label>
+                <input type="email" id="similar-email" name="email" required>
+
+                <label for="similar-message">Détails de votre projet :</label>
+                <textarea id="similar-message" name="message" required></textarea>
+
+                <button type="submit" class="submit-btn">Envoyer la demande</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modification Request Modal -->
+    <div id="modify-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Demander des modifications</h3>
+            <form id="modify-form">
+                <label for="modify-name">Nom :</label>
+                <input type="text" id="modify-name" name="name" required>
+
+                <label for="modify-email">Email :</label>
+                <input type="email" id="modify-email" name="email" required>
+
+                <label for="modify-message">Décrivez les modifications souhaitées :</label>
+                <textarea id="modify-message" name="message" required></textarea>
+
+                <button type="submit" class="submit-btn">Envoyer la demande</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Messages reçus</h3>
+            <div id="messages-list"></div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div id="chat-modal" class="modal">
+        <div class="modal-content chat-modal-content">
+            <span class="close-btn">&times;</span>
+            <h3><i class="fas fa-comments"></i> Chat avec Philippe</h3>
+            <div id="chat-messages" class="chat-messages"></div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-name" placeholder="Votre nom" required>
+                <input type="email" id="chat-email" placeholder="Votre email" required>
+                <textarea id="chat-message" placeholder="Tapez votre message..." required></textarea>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
         </div>
     </div>
 
     <!-- Section Contact -->
     <section id="contact" class="fade-in">
-        <h2>Contact</h2>
+        <h2><i class="fas fa-envelope"></i> Contact</h2>
         <form id="contact-form">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name" required class="form-input">
@@ -120,10 +371,12 @@
             <button type="submit" class="submit-btn">Envoyer</button>
         </form>
         <div class="contact-info">
-            <p>Contactez-moi directement :</p>
-            <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail Logo" style="width: 20px; height: 20px; margin-right: 5px;"> Email : <a href="mailto:magellanbastese@gmail.com">magellanbastese@gmail.com</a></p>
-            <p>Téléphone : <a href="tel:0986091501">0986091501</a></p>
+            <p><i class="fas fa-address-book"></i> Contactez-moi directement :</p>
+            <p><i class="fas fa-envelope"></i> Email : <a href="mailto:magellanbastese@gmail.com">magellanbastese@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Téléphone : <a href="tel:0986091501">0986091501</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Localisation : Paris, France</p>
         </div>
+        <button id="admin-btn" class="admin-btn">Admin Panel</button>
     </section>
 
     <!-- Lien vers le fichier JavaScript local -->
