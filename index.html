@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Philippe Kakese Nkulu</title>
+    <meta name="description" content="Portfolio de Philippe Kakese Nkulu - Développeur Web Full Stack spécialisé en Python, JavaScript et Node.js">
+    <meta name="keywords" content="développeur web, portfolio, Python, JavaScript, Node.js, React, full stack">
+    <meta name="author" content="Philippe Kakese Nkulu">
+    <meta property="og:title" content="Portfolio de Philippe Kakese Nkulu">
+    <meta property="og:description" content="Découvrez mes projets et compétences en développement web">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://philippe-kakese-nkulu.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://philippe-kakese-nkulu.dev">
     <!-- Lien vers le fichier CSS local -->
     <link rel="stylesheet" href="assets/style.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- En-tête avec nom et navigation -->
@@ -27,7 +38,7 @@
     </header>
 
     <!-- Section Accueil -->
-    <section id="home" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=1920&h=1080&fit=crop&crop=center'); background-size: cover; background-position: center;">
+    <section id="home" data-bg="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=1920&h=1080&fit=crop&crop=center" class="lazy-bg">
         <div class="hero">
             <h2><i class="fas fa-code"></i> Bienvenue sur mon portfolio</h2>
             <p><i class="fas fa-rocket"></i> Découvrez mes projets et compétences en développement web.</p>
@@ -75,7 +86,7 @@
     </section>
 
     <!-- Section Projets -->
-    <section id="projects" class="fade-in" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1920&h=1080&fit=crop&crop=center'); background-size: cover; background-attachment: fixed;">
+    <section id="projects" class="fade-in lazy-bg" data-bg="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1920&h=1080&fit=crop&crop=center" style="background-attachment: fixed;">
         <h2><i class="fas fa-briefcase"></i> Projets</h2>
         <div class="projects-container">
             <!-- Existing projects -->
@@ -110,96 +121,7 @@
                 <p>Développement d'une API RESTful pour applications mobiles.</p>
                 <p><strong>Technologie :</strong> Node.js, Express</p>
             </div>
-            <div class="project" data-project-id="6">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 6 : Dashboard Admin</h3>
-                <p>Tableau de bord administrateur avec graphiques et statistiques.</p>
-                <p><strong>Technologie :</strong> React, Chart.js</p>
-            </div>
-            <div class="project" data-project-id="7">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 7 : Site Vitrine</h3>
-                <p>Site vitrine responsive pour entreprise locale.</p>
-                <p><strong>Technologie :</strong> Bootstrap, PHP</p>
-            </div>
-            <div class="project" data-project-id="8">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 8 : Chat Application</h3>
-                <p>Application de chat en temps réel avec WebSockets.</p>
-                <p><strong>Technologie :</strong> Socket.io, Node.js</p>
-            </div>
-            <div class="project" data-project-id="9">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 9 : Système de Gestion</h3>
-                <p>Système de gestion de contenu pour blogs.</p>
-                <p><strong>Technologie :</strong> Laravel, MySQL</p>
-            </div>
-            <div class="project" data-project-id="10">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 10 : App Météo</h3>
-                <p>Application météo avec API externe et géolocalisation.</p>
-                <p><strong>Technologie :</strong> Vue.js, OpenWeather API</p>
-            </div>
-            <div class="project" data-project-id="11">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 11 : E-learning Platform</h3>
-                <p>Plateforme d'apprentissage en ligne avec cours et quiz.</p>
-                <p><strong>Technologie :</strong> Django, PostgreSQL</p>
-            </div>
-            <div class="project" data-project-id="12">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 12 : Social Network</h3>
-                <p>Réseau social basique avec profils et publications.</p>
-                <p><strong>Technologie :</strong> MERN Stack</p>
-            </div>
-            <div class="project" data-project-id="13">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 13 : Task Manager</h3>
-                <p>Gestionnaire de tâches avec drag & drop.</p>
-                <p><strong>Technologie :</strong> Angular, Firebase</p>
-            </div>
-            <div class="project" data-project-id="14">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 14 : Photo Gallery</h3>
-                <p>Galerie photo avec upload et filtres.</p>
-                <p><strong>Technologie :</strong> PHP, jQuery</p>
-            </div>
-            <div class="project" data-project-id="15">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 15 : Booking System</h3>
-                <p>Système de réservation pour événements.</p>
-                <p><strong>Technologie :</strong> Symfony, MySQL</p>
-            </div>
-            <div class="project" data-project-id="16">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 16 : Music Player</h3>
-                <p>Lecteur de musique avec playlist personnalisée.</p>
-                <p><strong>Technologie :</strong> React Native</p>
-            </div>
-            <div class="project" data-project-id="17">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 17 : Recipe App</h3>
-                <p>Application de recettes avec recherche et favoris.</p>
-                <p><strong>Technologie :</strong> Flutter, SQLite</p>
-            </div>
-            <div class="project" data-project-id="18">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 18 : Fitness Tracker</h3>
-                <p>Suivi fitness avec graphiques et objectifs.</p>
-                <p><strong>Technologie :</strong> Ionic, MongoDB</p>
-            </div>
-            <div class="project" data-project-id="19">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 19 : News Aggregator</h3>
-                <p>Agrégateur de nouvelles avec catégories.</p>
-                <p><strong>Technologie :</strong> Next.js, API</p>
-            </div>
-            <div class="project" data-project-id="20">
-                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop&crop=center'); background-size: cover;"></div>
-                <h3>Projet 20 : Expense Tracker</h3>
-                <p>Suivi des dépenses avec rapports mensuels.</p>
-                <p><strong>Technologie :</strong> Vue.js, LocalStorage</p>
-            </div>
+
         </div>
     </section>
 
@@ -364,6 +286,9 @@
 
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required class="form-input">
+
+            <label for="phone">Téléphone :</label>
+            <input type="tel" id="phone" name="phone" required class="form-input">
 
             <label for="message">Message :</label>
             <textarea id="message" name="message" required class="form-input"></textarea>

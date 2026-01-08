@@ -1,5 +1,57 @@
 // Script JavaScript pour ajouter de l'interactivité au portfolio
 
+// Initialize EmailJS
+(function() {
+    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+})();
+
+// Lazy loading for background images
+function lazyLoadBackgrounds() {
+    const lazyBgElements = document.querySelectorAll('.lazy-bg');
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const bg = element.getAttribute('data-bg');
+                    if (bg) {
+                        element.style.backgroundImage = `url('${bg}')`;
+                        element.classList.remove('lazy-bg');
+                        observer.unobserve(element);
+                    }
+                }
+            });
+        });
+
+        lazyBgElements.forEach(element => {
+            imageObserver.observe(element);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyBgElements.forEach(element => {
+            const bg = element.getAttribute('data-bg');
+            if (bg) {
+                element.style.backgroundImage = `url('${bg}')`;
+                element.classList.remove('lazy-bg');
+            }
+        });
+    }
+}
+
+// Register service worker for caching
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed:', error);
+            });
+    });
+}
+
 // Fonction pour valider un formulaire générique
 function validateForm(name, email, message) {
     // Vérifier si tous les champs sont remplis
@@ -19,12 +71,13 @@ function validateForm(name, email, message) {
 }
 
 // Fonction pour stocker un message dans localStorage
-function storeMessage(type, name, email, message) {
+function storeMessage(type, name, email, phone, message) {
     const messages = JSON.parse(localStorage.getItem('portfolioMessages')) || [];
     messages.push({
         type: type,
         name: name,
         email: email,
+        phone: phone,
         message: message,
         timestamp: new Date().toISOString()
     });
@@ -53,18 +106,27 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
     const message = document.getElementById('message').value.trim();
 
     // Valider le formulaire
-    if (validateForm(name, email, message)) {
-        // Stocker le message
-        storeMessage('contact', name, email, message);
-
-        // Afficher une alerte avec le message "Message envoyé !"
-        alert('Message envoyé !');
-
-        // Réinitialiser le formulaire après l'alerte
-        this.reset();
+    if (validateForm(name, email, phone, message)) {
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: name,
+            from_email: email,
+            phone: phone,
+            message: message,
+            to_email: 'magellanbastese@gmail.com'
+        })
+        .then(function(response) {
+            alert('Message envoyé !');
+            // Réinitialiser le formulaire après l'alerte
+            event.target.reset();
+        }, function(error) {
+            alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+            console.error('EmailJS error:', error);
+        });
     }
 });
 
@@ -77,11 +139,23 @@ document.getElementById('similar-form').addEventListener('submit', function(even
     const message = document.getElementById('similar-message').value.trim();
 
     if (validateForm(name, email, message)) {
-        storeMessage('similar', name, email, message);
-        alert('Demande envoyée !');
-        this.reset();
-        // Fermer le modal
-        document.getElementById('contact-modal').style.display = 'none';
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: name,
+            from_email: email,
+            message: message,
+            subject: 'Demande de site similaire',
+            to_email: 'magellanbastese@gmail.com'
+        })
+        .then(function(response) {
+            alert('Demande envoyée !');
+            event.target.reset();
+            // Fermer le modal
+            document.getElementById('contact-modal').style.display = 'none';
+        }, function(error) {
+            alert('Erreur lors de l\'envoi de la demande. Veuillez réessayer.');
+            console.error('EmailJS error:', error);
+        });
     }
 });
 
@@ -94,11 +168,23 @@ document.getElementById('modify-form').addEventListener('submit', function(event
     const message = document.getElementById('modify-message').value.trim();
 
     if (validateForm(name, email, message)) {
-        storeMessage('modify', name, email, message);
-        alert('Demande envoyée !');
-        this.reset();
-        // Fermer le modal
-        document.getElementById('modify-modal').style.display = 'none';
+        // Send email using EmailJS
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: name,
+            from_email: email,
+            message: message,
+            subject: 'Demande de modifications',
+            to_email: 'magellanbastese@gmail.com'
+        })
+        .then(function(response) {
+            alert('Demande envoyée !');
+            event.target.reset();
+            // Fermer le modal
+            document.getElementById('modify-modal').style.display = 'none';
+        }, function(error) {
+            alert('Erreur lors de l\'envoi de la demande. Veuillez réessayer.');
+            console.error('EmailJS error:', error);
+        });
     }
 });
 
@@ -118,6 +204,7 @@ window.addEventListener('scroll', handleScroll);
 
 // Déclencher les animations au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
+    lazyLoadBackgrounds();
     handleScroll();
     addFormEffects();
     addProjectPopups();
@@ -193,6 +280,7 @@ function setupAdminPanel() {
                     <h4>${msg.type === 'contact' ? 'Contact' : msg.type === 'similar' ? 'Demande similaire' : 'Modification'}</h4>
                     <p><strong>Nom:</strong> ${msg.name}</p>
                     <p><strong>Email:</strong> ${msg.email}</p>
+                    ${msg.phone ? `<p><strong>Téléphone:</strong> ${msg.phone}</p>` : ''}
                     <p><strong>Message:</strong> ${msg.message}</p>
                     <p><strong>Date:</strong> ${new Date(msg.timestamp).toLocaleString()}</p>
                     <hr>
@@ -245,6 +333,55 @@ function setupAdminPanel() {
         }
 
         document.getElementById('admin-modal').style.display = 'flex';
+    });
+}
+
+// Fonction pour gérer le chat
+function setupChat() {
+    document.getElementById('chat-link').addEventListener('click', () => {
+        document.getElementById('chat-modal').style.display = 'flex';
+    });
+
+    // Gérer la soumission du formulaire de chat
+    document.getElementById('chat-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('chat-name').value.trim();
+        const email = document.getElementById('chat-email').value.trim();
+        const message = document.getElementById('chat-message').value.trim();
+
+        if (name && email && message) {
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                from_name: name,
+                from_email: email,
+                message: message,
+                subject: 'Message via chat',
+                to_email: 'magellanbastese@gmail.com'
+            })
+            .then(function(response) {
+                // Afficher le message dans le chat
+                const chatMessages = document.getElementById('chat-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'chat-message user-message';
+                messageDiv.innerHTML = `<strong>${name}:</strong> ${message} <small>(${new Date().toLocaleTimeString()})</small>`;
+                chatMessages.appendChild(messageDiv);
+
+                // Réponse automatique
+                setTimeout(() => {
+                    const replyDiv = document.createElement('div');
+                    replyDiv.className = 'chat-message owner-message';
+                    replyDiv.innerHTML = `<strong>Philippe:</strong> Merci pour votre message ! Je vous répondrai bientôt. <small>(${new Date().toLocaleTimeString()})</small>`;
+                    chatMessages.appendChild(replyDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+
+                event.target.reset();
+            }, function(error) {
+                alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+                console.error('EmailJS error:', error);
+            });
+        }
     });
 }
 
