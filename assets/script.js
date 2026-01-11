@@ -1,11 +1,38 @@
 // Script JavaScript pour ajouter de l'interactivité au portfolio
 
+// Performance optimization: Throttle function
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Performance optimization: Debounce function
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // Initialize EmailJS
 (function() {
     emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
 })();
 
-// Lazy loading for background images
+// Optimized lazy loading for background images with performance improvements
 function lazyLoadBackgrounds() {
     const lazyBgElements = document.querySelectorAll('.lazy-bg');
 
@@ -16,12 +43,18 @@ function lazyLoadBackgrounds() {
                     const element = entry.target;
                     const bg = element.getAttribute('data-bg');
                     if (bg) {
-                        element.style.backgroundImage = `url('${bg}')`;
-                        element.classList.remove('lazy-bg');
+                        // Use requestAnimationFrame for smooth rendering
+                        requestAnimationFrame(() => {
+                            element.style.backgroundImage = `url('${bg}')`;
+                            element.classList.remove('lazy-bg');
+                        });
                         observer.unobserve(element);
                     }
                 }
             });
+        }, {
+            rootMargin: '50px 0px', // Load images 50px before they enter viewport
+            threshold: 0.01
         });
 
         lazyBgElements.forEach(element => {
@@ -199,8 +232,9 @@ function handleScroll() {
     });
 }
 
-// Écouter l'événement scroll pour déclencher les animations
-window.addEventListener('scroll', handleScroll);
+// Optimized scroll event with throttling for better performance
+const throttledScrollHandler = throttle(handleScroll, 16); // ~60fps
+window.addEventListener('scroll', throttledScrollHandler, { passive: true });
 
 // Déclencher les animations au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
@@ -395,4 +429,33 @@ document.querySelectorAll('nav a').forEach(anchor => {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
     });
+});
+
+// Hamburger menu toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a nav link (for mobile)
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
 });
